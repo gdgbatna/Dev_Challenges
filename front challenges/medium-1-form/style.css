@@ -1,0 +1,352 @@
+@font-face {
+	font-family: custom-font;
+	src: url('./assets/font.ttf');
+}
+
+*::selection {
+	background-color: #1a8ed1;
+	color: #fff;
+}
+
+body {
+	font-family: custom-font;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 100vh;
+	margin: 0;
+	padding: 20px;
+	box-sizing: border-box;
+}
+
+form {
+	width: 600px;
+	height: 550px;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 25px;
+	overflow: auto;
+	resize: both;
+	container-type: size;
+	padding-bottom: 30px;
+
+	#grid {
+		display: grid;
+		grid-template-columns: 1fr;
+		grid-template-rows: repeat(50, auto) 1fr;
+		height: 100%;
+	}
+	@container (min-width: 550px) {
+		#grid {
+			grid-template-columns: 1fr 1fr;
+		}
+		.section {
+			margin: 0 10px 10px 0 !important;
+		}
+	}
+	.section {
+		background-color: #f0f0f0;
+		padding: 15px;
+		border-radius: 18px;
+		margin: 0 0 10px 0;
+	}
+	input {
+		font-family: custom-font;
+		font-size: 16px;
+		color: #333;
+	}
+	input:focus,
+	textarea:focus {
+		outline: none;
+	}
+	.text-section,
+	.password-section {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		input {
+			width: 100%;
+			border-radius: 10px;
+			border: solid 1px #ccc;
+			padding: 2px 5px;
+		}
+	}
+	.switch-section {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		input {
+			appearance: none;
+			width: 50px;
+			height: 25px;
+			border-radius: 100px;
+			border: 1px solid #ccc;
+			outline: none;
+			cursor: pointer;
+			background-color: #fff;
+			transition: background 300ms ease;
+			padding: 3px;
+			box-sizing: border-box;
+
+			&::before {
+				content: '';
+				display: block;
+				height: 100%;
+				aspect-ratio: 1/1;
+				border-radius: 50%;
+				background-color: #333;
+				transition: transform 300ms ease, background 300ms ease;
+				transform: translateX(0);
+			}
+		}
+
+		input:checked {
+			background-color: #333;
+
+			&::before {
+				background-color: #fff;
+				transform: translateX(calc(50px - 25px));
+			}
+		}
+	}
+	.checkbox-section {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		input {
+			appearance: none;
+			width: 25px;
+			height: 25px;
+			border-radius: 4px;
+			border: 1px solid #ccc;
+			outline: none;
+			cursor: pointer;
+			background-color: #fff;
+			transition: background 300ms ease;
+			padding: 3px;
+			box-sizing: border-box;
+		}
+
+		input::before {
+			content: '';
+			display: block;
+			width: 100%;
+			height: 100%;
+			border-radius: 4px;
+			background-color: #fff;
+			transition: transform 300ms ease, background 300ms ease;
+			transform: scale(0);
+		}
+
+		input:checked::before {
+			background-color: #333;
+			transform: scale(1);
+		}
+	}
+	.radio-section {
+		display: grid;
+		grid-template-columns: auto 1fr;
+		gap: 10px;
+
+		h2 {
+			font-size: 18px;
+			grid-column: 1/-1;
+			margin: 0;
+			font-weight: normal;
+		}
+		input {
+			appearance: none;
+			width: 20px;
+			height: 20px;
+			border-radius: 50%;
+			border: 1px solid #ccc;
+			outline: none;
+			cursor: pointer;
+			background-color: #fff;
+			transition: background 300ms ease;
+			padding: 3px;
+			margin: 0 0 0 10px;
+			box-sizing: border-box;
+			&:before {
+				content: '';
+				display: block;
+				width: 100%;
+				height: 100%;
+				border-radius: 50%;
+				background-color: #fff;
+				transition: transform 300ms ease, background 300ms ease;
+				transform: scale(0);
+			}
+		}
+
+		input:checked::before {
+			background-color: #333;
+			transform: scale(1);
+		}
+	}
+	.textarea-section {
+		display: flex;
+		flex-direction: column;
+		gap: 10px;
+
+		textarea {
+			box-sizing: border-box;
+			width: 100%;
+			border-radius: 10px;
+			border: solid 1px #ccc;
+			padding: 5px;
+			resize: vertical;
+			font-family: custom-font;
+			font-size: 16px;
+			color: #333;
+		}
+	}
+	.select-section {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+		position: relative;
+
+		select {
+			width: 100%;
+			border-radius: 10px;
+			border: solid 1px #ccc;
+			padding: 2px 5px 2px 5px;
+			background-color: #fff;
+			cursor: pointer;
+			font-family: custom-font;
+			font-size: 16px;
+			color: #333;
+
+			&:focus {
+				outline: none;
+			}
+		}
+		option {
+			font-family: custom-font;
+			font-size: 16px;
+			color: #333;
+			padding: 5px;
+		}
+	}
+	.file-section {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		input {
+			width: 100%;
+		}
+		input::-webkit-file-upload-button {
+			border: solid 1px #ccc;
+			border-radius: 10px;
+			padding: 5px 10px;
+			background-color: #fff;
+			cursor: pointer;
+		}
+	}
+	.datetime-section {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+
+		input {
+			border-radius: 10px;
+			padding: 3px 5px;
+			border: solid 1px #ccc;
+		}
+	}
+	.color-section {
+		display: flex;
+		flex-direction: column;
+		gap: 5px;
+
+		input {
+			padding: 0;
+			width: 100%;
+			height: 30px;
+			border: none;
+			background: transparent;
+
+			&::-webkit-color-swatch-wrapper {
+				border: none;
+			}
+		}
+	}
+	.slider-section {
+		display: flex;
+		align-items: center;
+		gap: 10px;
+
+		input {
+			appearance: none;
+			-webkit-appearance: none;
+			width: 100%;
+			height: 8px;
+			border-radius: 100px;
+			border: 1px solid #ccc;
+			outline: none;
+			cursor: pointer;
+			background-color: #fff;
+			padding: 3px;
+			box-sizing: border-box;
+
+			&::-webkit-slider-thumb {
+				appearance: none;
+				-webkit-appearance: none;
+				appearance: none;
+				width: 15px;
+				height: 15px;
+				border-radius: 50%;
+				background-color: #333;
+				cursor: pointer;
+			}
+		}
+	}
+	.submit-section {
+		grid-column: 1/-1;
+		grid-row: -2/-1;
+		height: 100%;
+		display: flex;
+		align-items: end;
+		margin: 10px 0;
+
+		input {
+			width: 100%;
+			padding: 10px;
+			border-radius: 18px;
+			border: none;
+			background-color: #333;
+			color: #fff;
+			cursor: pointer;
+			font-size: 16px;
+			font-family: custom-font;
+			transition: outline 300ms ease;
+			outline: solid 2px transparent;
+
+			&:hover {
+				outline: solid 2px #1a8ed1;
+			}
+		}
+	}
+}
+
+@media screen and (max-aspect-ratio: 2/3) {
+	body {
+		display: block;
+	}
+	form {
+		resize: none;
+		container-type: normal;
+		overflow: visible;
+		width: 100% !important;
+		height: fit-content !important;
+		box-sizing: border-box;
+		margin: 30px 0;
+		#grid {
+			grid-template-columns: 1fr;
+		}
+	}
+}

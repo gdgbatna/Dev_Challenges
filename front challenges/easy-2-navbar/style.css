@@ -1,0 +1,100 @@
+@font-face {
+	font-family: custom-font;
+	src: url('./assets/font.ttf');
+}
+
+body {
+	margin: 0;
+	font-family: custom-font, cursive, serif;
+	font-size: 20px;
+}
+nav {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 64px;
+	background-color: white;
+	border-bottom: solid 1px #c0c0c0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 0 30px;
+	box-sizing: border-box;
+
+	#logo {
+		height: 80%;
+
+		img {
+			height: 100%;
+		}
+	}
+
+	ul {
+		display: flex;
+		justify-content: space-evenly;
+		width: 40%;
+		height: 100%;
+		gap: 10px;
+
+		li {
+			cursor: pointer;
+			white-space: nowrap;
+			height: 100%;
+			width: 100%;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			position: relative;
+
+			ul {
+				display: none;
+				flex-direction: column;
+				justify-items: center;
+				position: absolute;
+				top: 100%;
+				left: 50%;
+				min-width: 100%;
+				width: fit-content;
+				height: auto;
+				background-color: white;
+				border: solid 1px #c0c0c0;
+				padding: 0;
+				margin: 0;
+				z-index: 1;
+				box-sizing: border-box;
+				transform: translate(-50%, 0);
+				li {
+					width: auto;
+					padding: 10px;
+					&:hover {
+						background-color: #f0f0f0;
+					}
+				}
+			}
+		}
+		li:hover,
+		li:has(ul:hover) {
+			background-color: #f0f0f0;
+			ul {
+				display: flex;
+			}
+		}
+	}
+
+	#auth {
+		color: black;
+		text-decoration: underline 1px;
+		margin-right: 20px;
+	}
+}
+main {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+	align-items: center;
+	text-align: center;
+	height: 120vh;
+	font-size: 30px;
+	padding: 0 100px;
+}

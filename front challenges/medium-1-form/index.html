@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>medium 1: form</title>
+		<link rel="stylesheet" href="style.css" />
+		<script defer src="script.js"></script>
+	</head>
+	<body>
+		<form action="">
+			<div id="grid">
+				<div class="text-section section">
+					<label for="text">text:</label>
+					<input
+						type="text"
+						id="text"
+						name="text"
+						placeholder="enter text here..."
+					/>
+				</div>
+				<div class="password-section section">
+					<label for="password">password:</label>
+					<input
+						type="password"
+						id="password"
+						name="password"
+						placeholder="enter password here..."
+					/>
+				</div>
+				<div class="switch-section section">
+					<label for="switch">switch:</label>
+					<input type="checkbox" id="switch" name="switch" />
+				</div>
+				<div class="checkbox-section section">
+					<label for="checkbox">checkbox:</label>
+					<input type="checkbox" id="checkbox" name="checkbox" />
+				</div>
+				<div class="radio-section section">
+					<h2>radio:</h2>
+					<input
+						type="radio"
+						name="radio"
+						id="radio-1"
+						value="choice-1"
+					/>
+					<label for="radio-1">choice 1</label>
+					<input
+						type="radio"
+						name="radio"
+						id="radio-2"
+						value="choice-2"
+					/>
+					<label for="radio-2">choice 2</label>
+				</div>
+				<div class="textarea-section section">
+					<label for="textarea">textarea:</label>
+					<textarea name="textarea" id="textarea" rows="2"></textarea>
+				</div>
+				<div class="select-section section">
+					<label for="select">select:</label>
+					<select name="select" id="select">
+						<option value="option-1">option 1</option>
+						<option value="option-2">option 2</option>
+						<option value="option-3">option 3</option>
+					</select>
+				</div>
+				<div class="file-section section">
+					<label for="file">file:</label>
+					<input type="file" id="file" name="file" />
+				</div>
+				<div class="datetime-section section">
+					<label for="datetime">datetime:</label>
+					<input
+						type="datetime-local"
+						id="datetime"
+						name="datetime"
+					/>
+				</div>
+				<div class="color-section section">
+					<label for="color">color:</label>
+					<input
+						type="color"
+						id="color"
+						name="color"
+						value="#292929"
+					/>
+				</div>
+				<div class="slider-section section">
+					<label for="slider">slider:</label>
+					<input
+						type="range"
+						id="slider"
+						name="slider"
+						min="0"
+						max="100"
+						step="1"
+						value="50"
+					/>
+					<span id="slider-value">50</span>
+				</div>
+                <div class="submit-section">
+                    <input class="submit-button" type="submit" value="submit" />
+                </div>
+			</div>
+		</form>
+	</body>
+</html>
